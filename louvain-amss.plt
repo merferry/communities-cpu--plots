@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 5in,3in
-set output 'rak-am.pdf'
+set output 'louvain-amss.pdf'
 
 
 ## Set global styles
@@ -8,14 +8,14 @@ set termoption dashed
 set datafile separator ','
 set style fill solid border lt -1
 set style textbox opaque noborder
+set xtics 2
 set xtics rotate by 45 right
 set logscale x 10
-set logscale y 10
 set format x "%g"
 set grid   y
 set key above font ",12"
-set xlabel  'Batch fraction'
-set ylabel  'Runtime (s)'
+set xlabel  'Threads'
+set ylabel  'Speedup'
 set y2label 'Modularity'
 set y2range [0:1]
 set y2tics  0.2
@@ -36,15 +36,15 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 # set title 'AM time for all batch sizes (omp)' offset 0,-0.8
-plot 'rak-am.csv' \
-       using 7:($11/1000) title 'Static'           linestyle 1 with linespoints, \
-    '' using 7:($13/1000) title 'Naive-dyn.'       linestyle 2 with linespoints, \
-    '' using 7:($15/1000) title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
-    '' using 7:($17/1000) title 'Dyn. Frontier'    linestyle 4 with linespoints, \
-    '' using 7:21 title '' linestyle 11 with linespoints axes x1y2, \
-    '' using 7:23 title '' linestyle 12 with linespoints axes x1y2, \
-    '' using 7:25 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 7:27 title '' linestyle 14 with linespoints axes x1y2,
+plot 'louvain-amss.csv' \
+       using 8:10 title 'Static'           linestyle 1 with linespoints, \
+    '' using 8:11 title 'Naive-dyn.'       linestyle 2 with linespoints, \
+    '' using 8:12 title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
+    '' using 8:13 title 'Dyn. Frontier'    linestyle 4 with linespoints, \
+    '' using 8:15 title '' linestyle 11 with linespoints axes x1y2, \
+    '' using 8:16 title '' linestyle 12 with linespoints axes x1y2, \
+    '' using 8:17 title '' linestyle 13 with linespoints axes x1y2, \
+    '' using 8:18 title '' linestyle 14 with linespoints axes x1y2,
 
 
 
@@ -57,26 +57,17 @@ plot 'rak-am.csv' \
 # 05. batch_insertions_size
 # 06. batch_size
 # 07. batch_fraction
-# 08. seqsta-t
-# 09. seqstas-t
-# 10. ompsta-t
-# 11. ompstas-t
-# 12. ompnai-t
-# 13. ompnais-t
-# 14. ompdel-t
-# 15. ompdels-t
-# 16. ompfro-t
-# 17. ompfros-t
-# 18. seqsta-m
-# 19. seqstas-m
-# 20. ompsta-m
-# 21. ompstas-m
-# 22. ompnai-m
-# 23. ompnais-m
-# 24. ompdel-m
-# 25. ompdels-m
-# 26. ompfro-m
-# 27. ompfros-m
+# 08. num_threads
+# 09. seqsta-s
+# 10. ompsta-s
+# 11. ompnai-s
+# 12. ompdel-s
+# 13. ompfro-s
+# 14. seqsta-m
+# 15. ompsta-m
+# 16. ompnai-m
+# 17. ompdel-m
+# 18. ompfro-m
 
 
 ## How it works

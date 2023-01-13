@@ -1,11 +1,12 @@
 set term pdf
-set terminal pdf size 5in,3in
-set output 'rak-am.pdf'
+set terminal pdf size 10in,6in
+set output 'louvain-all.pdf'
 
 
 ## Set global styles
 set termoption dashed
 set datafile separator ','
+set title noenhanced
 set style fill solid border lt -1
 set style textbox opaque noborder
 set xtics rotate by 45 right
@@ -13,12 +14,13 @@ set logscale x 10
 set logscale y 10
 set format x "%g"
 set grid   y
-set key above font ",12"
-set xlabel  'Batch fraction'
-set ylabel  'Runtime (s)'
-set y2label 'Modularity'
+set key off
+# set xlabel  'Batch fraction'
+# set ylabel  'Runtime (s)'
+# set y2label 'Modularity'
 set y2range [0:1]
-set y2tics  0.2
+# set y2tics  0.2
+set multiplot layout 3,5
 
 
 ## Set line styles
@@ -35,18 +37,49 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-# set title 'AM time for all batch sizes (omp)' offset 0,-0.8
-plot 'rak-am.csv' \
-       using 7:($11/1000) title 'Static'           linestyle 1 with linespoints, \
-    '' using 7:($13/1000) title 'Naive-dyn.'       linestyle 2 with linespoints, \
-    '' using 7:($15/1000) title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
-    '' using 7:($17/1000) title 'Dyn. Frontier'    linestyle 4 with linespoints, \
-    '' using 7:21 title '' linestyle 11 with linespoints axes x1y2, \
-    '' using 7:23 title '' linestyle 12 with linespoints axes x1y2, \
-    '' using 7:25 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 7:27 title '' linestyle 14 with linespoints axes x1y2,
+files='indochina-2004 uk-2002 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
+do for [i=1:words(files)] {
+set title word(files, i) # offset 0,-0.8
+plot 'louvain-all/'.word(files, i).'.csv' \
+       using 7:($9 /1000) title 'Static'           linestyle 1 with linespoints, \
+    '' using 7:($10/1000) title 'Naive-dyn.'       linestyle 2 with linespoints, \
+    '' using 7:($11/1000) title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
+    '' using 7:($12/1000) title 'Dyn. Frontier'    linestyle 4 with linespoints, \
+    '' using 7:14 title '' linestyle 11 with linespoints axes x1y2, \
+    '' using 7:15 title '' linestyle 12 with linespoints axes x1y2, \
+    '' using 7:16 title '' linestyle 13 with linespoints axes x1y2, \
+    '' using 7:17 title '' linestyle 14 with linespoints axes x1y2,
+}
 
 
+set key center center
+set border 0
+unset tics
+unset title
+set yrange [0:1]
+plot 2 t 'Static'           linestyle 1 with linespoints, \
+     2 t 'Naive-dyn.'       linestyle 2 with linespoints, \
+     2 t 'Dyn. Δ-screening' linestyle 3 with linespoints, \
+     2 t 'Dyn. Frontier'    linestyle 4 with linespoints
+unset multiplot
+
+
+
+
+## Names of CSV files.
+# 01. indochina-2004
+# 02. uk-2002
+# 03. arabic-2005
+# 04. uk-2005
+# 05. webbase-2001
+# 06. it-2004
+# 07. sk-2005
+# 08. com-LiveJournal
+# 09. com-Orkut
+# 10. asia_osm
+# 11. europe_osm
+# 12. kmer_A2a
+# 13. kmer_V1r
 
 
 ## Columns in CSV file.
@@ -58,25 +91,15 @@ plot 'rak-am.csv' \
 # 06. batch_size
 # 07. batch_fraction
 # 08. seqsta-t
-# 09. seqstas-t
-# 10. ompsta-t
-# 11. ompstas-t
-# 12. ompnai-t
-# 13. ompnais-t
-# 14. ompdel-t
-# 15. ompdels-t
-# 16. ompfro-t
-# 17. ompfros-t
-# 18. seqsta-m
-# 19. seqstas-m
-# 20. ompsta-m
-# 21. ompstas-m
-# 22. ompnai-m
-# 23. ompnais-m
-# 24. ompdel-m
-# 25. ompdels-m
-# 26. ompfro-m
-# 27. ompfros-m
+# 09. ompsta-t
+# 10. ompnai-t
+# 11. ompdel-t
+# 12. ompfro-t
+# 13. seqsta-m
+# 14. ompsta-m
+# 15. ompnai-m
+# 16. ompdel-m
+# 17. ompfro-m
 
 
 ## How it works
