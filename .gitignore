@@ -3,9 +3,7 @@
 *.png
 
 # Data
-data/
 *.zip
-*.csv
 
 # Logs
 logs
