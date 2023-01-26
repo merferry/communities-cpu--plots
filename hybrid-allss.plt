@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 10in,6in
+set terminal pdf size 10in,6in font ",18"
 set output 'hybrid-allss.pdf'
 
 
@@ -10,7 +10,7 @@ set title noenhanced
 set style fill solid border lt -1
 set style textbox opaque noborder
 set xtics 2
-set xtics rotate by 45 right
+unset xtics
 set logscale x 10
 set format x "%g"
 set grid   y
@@ -20,7 +20,7 @@ set key off
 # set y2label 'Modularity'
 set y2range [0:1]
 # set y2tics  0.2
-set multiplot layout 3,5
+set multiplot layout 3,4
 
 
 ## Set line styles
@@ -37,7 +37,7 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-files='indochina-2004 uk-2002 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
+files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
 set title word(files, i) # offset 0,-0.8
 plot 'hybrid-allss/'.word(files, i).'.csv' \
@@ -50,14 +50,14 @@ plot 'hybrid-allss/'.word(files, i).'.csv' \
 }
 
 
-set key center center
-set border 0
-unset tics
-unset title
-set yrange [0:1]
-plot 2 t 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-     2 t 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-     2 t 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints
+# set key center center
+# set border 0
+# unset tics
+# unset title
+# set yrange [0:1]
+# plot 2 t 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
+#      2 t 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
+#      2 t 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints
 unset multiplot
 
 
