@@ -44,7 +44,8 @@ plot 'louvain-am.csv' \
     '' using 7:14 title '' linestyle 11 with linespoints axes x1y2, \
     '' using 7:15 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 7:16 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 7:17 title '' linestyle 14 with linespoints axes x1y2,
+    '' using 7:17 title '' linestyle 14 with linespoints axes x1y2, \
+    '' using 7:($12/1000):(sprintf("%.2f", $11/$12)) with labels notitle offset character 0,character -1
 
 
 

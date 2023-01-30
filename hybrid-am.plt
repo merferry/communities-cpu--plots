@@ -42,7 +42,8 @@ plot 'hybrid-am.csv' \
     '' using 7:($18/1000) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
     '' using 7:25 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 7:27 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 7:29 title '' linestyle 14 with linespoints axes x1y2,
+    '' using 7:29 title '' linestyle 14 with linespoints axes x1y2, \
+    '' using 7:($18/1000):(sprintf("%.2f", $14/$18)) with labels notitle offset character 0,character 1
 
 
 
