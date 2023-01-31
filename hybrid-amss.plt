@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 5in,3in
+set terminal pdf size 4in,3.7in
 set output 'hybrid-amss.pdf'
 
 

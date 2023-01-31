@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 10in,6in font ",18"
+set terminal pdf size 10in,6in font ",20"
 set output 'louvain-all.pdf'
 
 
@@ -9,6 +9,8 @@ set datafile separator ','
 set title noenhanced
 set style fill solid border lt -1
 set style textbox opaque noborder
+set lmargin 4.5
+set tmargin 1
 unset xtics
 set logscale x 10
 set logscale y 10
@@ -39,7 +41,7 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 ## Draw plot
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
-set title word(files, i) # offset 0,-0.8
+set title word(files, i) offset 0,-0.8
 plot 'louvain-all/'.word(files, i).'.csv' \
        using 7:($9 /1000) title 'Static'           linestyle 1 with linespoints, \
     '' using 7:($10/1000) title 'Naive-dyn.'       linestyle 2 with linespoints, \
