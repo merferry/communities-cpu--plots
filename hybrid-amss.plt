@@ -16,9 +16,9 @@ set grid   y
 set key above font ",12"
 set xlabel  'Threads'
 set ylabel  'Speedup'
-set y2label 'Modularity'
-set y2range [0:1]
-set y2tics  0.2
+# set y2label 'Modularity'
+# set y2range [0:1]
+# set y2tics  0.2
 
 
 ## Set line styles
@@ -40,9 +40,9 @@ plot 'hybrid-amss.csv' \
        using 8:15 title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
     '' using 8:17 title 'Dyn. Frontier LPA'         linestyle 3 with linespoints, \
     '' using 8:19 title 'Dyn. Frontier Louvain-LPA' linestyle 4 with linespoints, \
-    '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
-    '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
+    # '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
+    # '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
+    # '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
 
 
 
