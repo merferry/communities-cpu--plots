@@ -46,9 +46,9 @@ plot 'hybrid-allss/'.word(files, i).'.csv' \
        using 8:15 title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
     '' using 8:17 title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
     '' using 8:19 title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
-    '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
-    '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
-    '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
+    # '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
+    # '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
+    # '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
 }
 
 
