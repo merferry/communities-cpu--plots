@@ -17,8 +17,8 @@ set key above font ",12"
 set xlabel  'Batch fraction'
 set ylabel  'Runtime (s)'
 set y2label 'Modularity'
-set y2range [0:1]
-set y2tics  0.2
+set y2range [0.75:0.95]
+set y2tics  0.05
 
 
 ## Set line styles
