@@ -37,9 +37,9 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 ## Draw plot
 # set title 'AM time for all batch sizes (omp)' offset 0,-0.8
 plot 'hybrid-amss.csv' \
-       using 8:15 title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 8:17 title 'Dyn. Frontier LPA'         linestyle 3 with linespoints, \
-    '' using 8:19 title 'Dyn. Frontier Louvain-LPA' linestyle 4 with linespoints, \
+       using 8:((0.001*$34 + 0.999*$37)/(0.001*$12 + 0.999*$15)) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 8:($39/$17)                                         title 'Dyn. Frontier LPA'         linestyle 3 with linespoints, \
+    '' using 8:((0.002*$34 + 0.998*$41)/(0.002*$12 + 0.998*$19)) title 'Dyn. Frontier Louvain-LPA' linestyle 4 with linespoints, \
     # '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
     # '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
     # '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
@@ -78,6 +78,17 @@ plot 'hybrid-amss.csv' \
 # 28. ompfrors-m
 # 29. ompfrolr-m
 # 30. ompfrolrs-m
+# 31. seqstal-t1
+# 32. seqstar-t1
+# 33. seqstars-t1
+# 34. ompstal-t1
+# 35. ompstar-t1
+# 36. ompstars-t1
+# 37. ompfrol-t1
+# 38. ompfror-t1
+# 39. ompfrors-t1
+# 40. ompfrolr-t1
+# 41. ompfrolrs-t1
 
 
 ## How it works

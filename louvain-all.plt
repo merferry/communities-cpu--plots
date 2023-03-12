@@ -43,10 +43,10 @@ files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJ
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 plot 'louvain-all/'.word(files, i).'.csv' \
-       using 7:($9 /1000) title 'Static'           linestyle 1 with linespoints, \
-    '' using 7:($10/1000) title 'Naive-dyn.'       linestyle 2 with linespoints, \
-    '' using 7:($11/1000) title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
-    '' using 7:($12/1000) title 'Dyn. Frontier'    linestyle 4 with linespoints, \
+       using 7:($9 /1000)                    title 'Static'           linestyle 1 with linespoints, \
+    '' using 7:($10/1000)                    title 'Naive-dyn.'       linestyle 2 with linespoints, \
+    '' using 7:((0.001*$9 + 0.999*$11)/1000) title 'Dyn. Δ-screening' linestyle 3 with linespoints, \
+    '' using 7:((0.001*$9 + 0.999*$12)/1000) title 'Dyn. Frontier'    linestyle 4 with linespoints, \
     # '' using 7:14 title '' linestyle 11 with linespoints axes x1y2, \
     # '' using 7:15 title '' linestyle 12 with linespoints axes x1y2, \
     # '' using 7:16 title '' linestyle 13 with linespoints axes x1y2, \

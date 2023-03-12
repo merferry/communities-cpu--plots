@@ -37,15 +37,15 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 ## Draw plot
 # set title 'AM time for all batch sizes (omp)' offset 0,-0.8
 plot 'louvain-am.csv' \
-       using 7:($9 /1000) title 'Static Louvain'           linestyle 1 with linespoints, \
-    '' using 7:($10/1000) title 'Naive-dyn. Louvain'       linestyle 2 with linespoints, \
-    '' using 7:($11/1000) title 'Dyn. Δ-screening Louvain' linestyle 3 with linespoints, \
-    '' using 7:($12/1000) title 'Dyn. Frontier Louvain'    linestyle 4 with linespoints, \
+       using 7:($9 /1000)                    title 'Static Louvain'           linestyle 1 with linespoints, \
+    '' using 7:($10/1000)                    title 'Naive-dyn. Louvain'       linestyle 2 with linespoints, \
+    '' using 7:((0.001*$9 + 0.999*$11)/1000) title 'Dyn. Δ-screening Louvain' linestyle 3 with linespoints, \
+    '' using 7:((0.001*$9 + 0.999*$12)/1000) title 'Dyn. Frontier Louvain'    linestyle 4 with linespoints, \
     '' using 7:14 title '' linestyle 11 with linespoints axes x1y2, \
     '' using 7:15 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 7:16 title '' linestyle 13 with linespoints axes x1y2, \
     '' using 7:17 title '' linestyle 14 with linespoints axes x1y2, \
-    '' using 7:($12/1000):(sprintf("%.2f", $11/$12)) with labels notitle offset character 0,character -1
+    '' using 7:((0.001*$9 + 0.999*$12)/1000):(sprintf("%.2f", (0.001*$9 + 0.999*$11)/(0.001*$9 + 0.999*$12))) with labels notitle offset character 0,character -1
 
 
 

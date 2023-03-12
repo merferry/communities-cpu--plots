@@ -43,9 +43,9 @@ files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJ
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 plot 'hybrid-all/'.word(files, i).'.csv' \
-       using 7:($14/1000) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 7:($16/1000) title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-    '' using 7:($18/1000) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
+       using 7:((0.001*$11 + 0.999*$14)/1000) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 7:($16/1000)                     title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
+    '' using 7:((0.002*$11 + 0.998*$18)/1000) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
     # '' using 7:25 title '' linestyle 12 with linespoints axes x1y2, \
     # '' using 7:27 title '' linestyle 13 with linespoints axes x1y2, \
     # '' using 7:29 title '' linestyle 14 with linespoints axes x1y2,
