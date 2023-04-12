@@ -17,17 +17,12 @@ set logscale y 10
 set format x "%g"
 set grid   y
 set key off
+set multiplot layout 3,4 margins 0.07,0.98,0.05,0.95 spacing 0.06,0.07
 # set xlabel  'Batch fraction'
 # set ylabel  'Runtime (s)'
-# set y2label 'Modularity'
-set y2range [0:1]
-# set y2tics  0.2
-set multiplot layout 3,4
 
 
 ## Set line styles
-# set boxwidth 0.20 abs
-# set style line 13 linewidth 2 dashtype 2 linetype 7 pointtype 7 pointsize 1 dashtype 2
 set style line  1 linewidth 2 linetype 8 pointtype 5
 set style line  2 linewidth 2 linetype 7 pointtype 7
 set style line  3 linewidth 2 linetype 6 pointtype 9
@@ -39,27 +34,16 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
+set label "Runtime (s)" at screen 0.01,0.5 center rotate font "Tahoma,18"
+set label "Batch fraction" at screen 0.5,0.02 center font "Tahoma,18"
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 plot 'hybrid-all/'.word(files, i).'.csv' \
-       using 7:((0.001*$11 + 0.999*$14)/1000) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 7:($16/1000)                     title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-    '' using 7:((0.002*$11 + 0.998*$18)/1000) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
-    # '' using 7:25 title '' linestyle 12 with linespoints axes x1y2, \
-    # '' using 7:27 title '' linestyle 13 with linespoints axes x1y2, \
-    # '' using 7:29 title '' linestyle 14 with linespoints axes x1y2,
+       using 7:((0.001*$8  + 0.999*$11)/1000) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 7:($13/1000)                     title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
+    '' using 7:((0.002*$8  + 0.998*$15)/1000) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints,
 }
-
-
-# set key center center
-# set border 0
-# unset tics
-# unset title
-# set yrange [0:1]
-# plot 2 t 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-#      2 t 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-#      2 t 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints
 unset multiplot
 
 
@@ -89,44 +73,19 @@ unset multiplot
 # 05. batch_insertions_size
 # 06. batch_size
 # 07. batch_fraction
-# 08. seqstal-t
-# 09. seqstar-t
-# 10. seqstars-t
-# 11. ompstal-t
-# 12. ompstar-t
-# 13. ompstars-t
-# 14. ompfrol-t
-# 15. ompfror-t
-# 16. ompfrors-t
-# 17. ompfrolr-t
-# 18. ompfrolrs-t
-# 19. seqstal-m
-# 20. seqstar-m
-# 21. seqstars-m
-# 22. ompstal-m
-# 23. ompstar-m
-# 24. ompstars-m
-# 25. ompfrol-m
-# 26. ompfror-m
-# 27. ompfrors-m
-# 28. ompfrolr-m
-# 29. ompfrolrs-m
-
-
-## How it works
-# set termoption linewidth 3
-# set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 5.5   # blue
-# set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 7 ps 1.5   # red
-# do for [i=1:100] {
-#   set style line i linewidth 30
-# }
-# set key autotitle columnhead
-# plot [500:10000] 'data/arabic-2005.csv'
-
-
-## Using boxes with plot
-#   ''  using 1:13:xtic(2) title 'Dynamic Levelwise'  with boxes fill pattern 2, \
-#   ''  using ($1+0.20):19 title 'Dynamic HyPR (CPU)' with boxes fill pattern 3 noborder, \
-#   ''  using ($1+0.40):11 title 'Static Levelwise'   with boxes fill pattern 3 noborder, \
-#   ''  using ($1+0.20):(0.9*$19):21 title '' with labels font ",12" rotate right, \
-#   ''  using ($1+0.40):(0.9*$11):20 title '' with labels font ",12" rotate right
+# 08. ompstal-t
+# 09. ompstar-t
+# 10. ompstars-t
+# 11. ompfrol-t
+# 12. ompfror-t
+# 13. ompfrors-t
+# 14. ompfrolr-t
+# 15. ompfrolrs-t
+# 16. ompstal-m
+# 17. ompstar-m
+# 18. ompstars-m
+# 19. ompfrol-m
+# 20. ompfror-m
+# 21. ompfrors-m
+# 22. ompfrolr-m
+# 23. ompfrolrs-m
