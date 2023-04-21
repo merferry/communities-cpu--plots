@@ -17,17 +17,12 @@ set logscale x 10
 set format x "%g"
 set grid   y
 set key off
+set multiplot layout 3,4 margins 0.07,0.98,0.05,0.95 spacing 0.06,0.07
 # set xlabel  'Threads'
 # set ylabel  'Speedup'
-# set y2label 'Modularity'
-set y2range [0:1]
-# set y2tics  0.2
-set multiplot layout 3,4
 
 
 ## Set line styles
-# set boxwidth 0.20 abs
-# set style line 13 linewidth 2 dashtype 2 linetype 7 pointtype 7 pointsize 1 dashtype 2
 set style line  1 linewidth 2 linetype 8 pointtype 5
 set style line  2 linewidth 2 linetype 7 pointtype 7
 set style line  3 linewidth 2 linetype 6 pointtype 9
@@ -39,27 +34,16 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
+set label "Speedup" at screen 0.01,0.5 center rotate font "Tahoma,18"
+set label "Threads" at screen 0.5,0.02 center font "Tahoma,18"
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 plot 'hybrid-allss/'.word(files, i).'.csv' \
-       using 8:((0.001*$34 + 0.999*$37)/(0.001*$12 + 0.999*$15)) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 8:($39/$17)                                         title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-    '' using 8:((0.002*$34 + 0.998*$41)/(0.002*$12 + 0.998*$19)) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints, \
-    # '' using 8:26 title '' linestyle 12 with linespoints axes x1y2, \
-    # '' using 8:28 title '' linestyle 13 with linespoints axes x1y2, \
-    # '' using 8:30 title '' linestyle 14 with linespoints axes x1y2,
+       using 8:((0.001*$25 + 0.999*$28)/(0.001*$9  + 0.999*$12)) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 8:($30/$14)                                         title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
+    '' using 8:((0.002*$25 + 0.998*$32)/(0.002*$9  + 0.998*$16)) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints,
 }
-
-
-# set key center center
-# set border 0
-# unset tics
-# unset title
-# set yrange [0:1]
-# plot 2 t 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-#      2 t 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-#      2 t 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints
 unset multiplot
 
 
@@ -90,55 +74,27 @@ unset multiplot
 # 06. batch_size
 # 07. batch_fraction
 # 08. num_threads
-# 09. seqstal-t
-# 10. seqstar-t
-# 11. seqstars-t
-# 12. ompstal-t
-# 13. ompstar-t
-# 14. ompstars-t
-# 15. ompfrol-t
-# 16. ompfror-t
-# 17. ompfrors-t
-# 18. ompfrolr-t
-# 19. ompfrolrs-t
-# 20. seqstal-m
-# 21. seqstar-m
-# 22. seqstars-m
-# 23. ompstal-m
-# 24. ompstar-m
-# 25. ompstars-m
-# 26. ompfrol-m
-# 27. ompfror-m
-# 28. ompfrors-m
-# 29. ompfrolr-m
-# 30. ompfrolrs-m
-# 31. seqstal-t1
-# 32. seqstar-t1
-# 33. seqstars-t1
-# 34. ompstal-t1
-# 35. ompstar-t1
-# 36. ompstars-t1
-# 37. ompfrol-t1
-# 38. ompfror-t1
-# 39. ompfrors-t1
-# 40. ompfrolr-t1
-# 41. ompfrolrs-t1
-
-
-## How it works
-# set termoption linewidth 3
-# set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 5.5   # blue
-# set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 7 ps 1.5   # red
-# do for [i=1:100] {
-#   set style line i linewidth 30
-# }
-# set key autotitle columnhead
-# plot [500:10000] 'data/arabic-2005.csv'
-
-
-## Using boxes with plot
-#   ''  using 1:13:xtic(2) title 'Dynamic Levelwise'  with boxes fill pattern 2, \
-#   ''  using ($1+0.20):19 title 'Dynamic HyPR (CPU)' with boxes fill pattern 3 noborder, \
-#   ''  using ($1+0.40):11 title 'Static Levelwise'   with boxes fill pattern 3 noborder, \
-#   ''  using ($1+0.20):(0.9*$19):21 title '' with labels font ",12" rotate right, \
-#   ''  using ($1+0.40):(0.9*$11):20 title '' with labels font ",12" rotate right
+# 09. ompstal-t
+# 10. ompstar-t
+# 11. ompstars-t
+# 12. ompfrol-t
+# 13. ompfror-t
+# 14. ompfrors-t
+# 15. ompfrolr-t
+# 16. ompfrolrs-t
+# 17. ompstal-m
+# 18. ompstar-m
+# 19. ompstars-m
+# 20. ompfrol-m
+# 21. ompfror-m
+# 22. ompfrors-m
+# 23. ompfrolr-m
+# 24. ompfrolrs-m
+# 25. ompstal-t1
+# 26. ompstar-t1
+# 27. ompstars-t1
+# 28. ompfrol-t1
+# 29. ompfror-t1
+# 30. ompfrors-t1
+# 31. ompfrolr-t1
+# 32. ompfrolrs-t1
