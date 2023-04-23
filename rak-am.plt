@@ -34,15 +34,15 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 plot 'rak-am.csv' \
-       using 7:($9 /1000) title '    Static LPA'           linestyle 1 with linespoints, \
-    '' using 7:($11/1000) title '    Naive-dyn. LPA'       linestyle 2 with linespoints, \
-    '' using 7:($13/1000) title '    Dyn. Δ-screening LPA' linestyle 3 with linespoints, \
-    '' using 7:($15/1000) title '    Dyn. Frontier LPA'    linestyle 4 with linespoints, \
+       using 7:($9 /1000) title '  Static LPA'              linestyle 1 with linespoints, \
+    '' using 7:($11/1000) title '  Naive-dynamic LPA'       linestyle 2 with linespoints, \
+    '' using 7:($13/1000) title '  Dynamic Δ-screening LPA' linestyle 3 with linespoints, \
+    '' using 7:($15/1000) title '  Dynamic Frontier LPA'    linestyle 4 with linespoints, \
     '' using 7:17 title '' linestyle 11 with linespoints axes x1y2, \
     '' using 7:19 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 7:21 title '' linestyle 13 with linespoints axes x1y2, \
     '' using 7:23 title '' linestyle 14 with linespoints axes x1y2, \
-    '' using 7:($15/1000):(sprintf("%.2f", $11/$15)) with labels notitle offset character 0,character 1
+    '' using 7:($15/1000):(sprintf("%.2f", $11/$15)) with labels notitle offset character 0,character -0.5
 
 
 

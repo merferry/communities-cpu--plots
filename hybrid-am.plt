@@ -34,9 +34,9 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 plot 'hybrid-am.csv' \
-       using 7:((0.001*$8  + 0.999*$11)/1000) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 7:($13/1000)                     title 'Dyn. Frontier LPA'         linestyle 3 with linespoints, \
-    '' using 7:((0.002*$8  + 0.998*$15)/1000) title 'Dyn. Frontier Louvain-LPA' linestyle 4 with linespoints, \
+       using 7:((0.001*$8  + 0.999*$11)/1000) title 'Dynamic Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 7:($13/1000)                     title 'Dynamic Frontier LPA'         linestyle 3 with linespoints, \
+    '' using 7:((0.002*$8  + 0.998*$15)/1000) title 'Dynamic Frontier Louvain-LPA' linestyle 4 with linespoints, \
     '' using 7:19 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 7:21 title '' linestyle 13 with linespoints axes x1y2, \
     '' using 7:23 title '' linestyle 14 with linespoints axes x1y2, \

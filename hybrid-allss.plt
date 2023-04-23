@@ -40,9 +40,9 @@ files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJ
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 plot 'hybrid-allss/'.word(files, i).'.csv' \
-       using 8:((0.001*$25 + 0.999*$28)/(0.001*$9  + 0.999*$12)) title 'Dyn. Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 8:($30/$14)                                         title 'Dyn. Frontier RAK'         linestyle 3 with linespoints, \
-    '' using 8:((0.002*$25 + 0.998*$32)/(0.002*$9  + 0.998*$16)) title 'Dyn. Frontier Louvain-RAK' linestyle 4 with linespoints,
+       using 8:((0.001*$25 + 0.999*$28)/(0.001*$9  + 0.999*$12)) title 'Dynamic Frontier Louvain'     linestyle 2 with linespoints, \
+    '' using 8:($30/$14)                                         title 'Dynamic Frontier RAK'         linestyle 3 with linespoints, \
+    '' using 8:((0.002*$25 + 0.998*$32)/(0.002*$9  + 0.998*$16)) title 'Dynamic Frontier Louvain-RAK' linestyle 4 with linespoints,
 }
 unset multiplot
 
