@@ -18,31 +18,49 @@ set xtics rotate by 45 right
 set tmargin 2
 set bmargin 3.5
 set boxwidth 5 relative
-# set format x "%g"
-# set xlabel  '{/:Bold Relative runtime}'
-# set y2range [0.85:0.95]
+
+
+## Define colors
+array T[9] = [ \
+  0x6000A0, \
+  0x006030, \
+  0x2080C0, \
+  0xB07000, \
+  0xA09010, \
+  0x004080, \
+  0xB00000, \
+  0x1090A0, \
+  0x304060 \
+]
+array B[9] = [ \
+  0x9100D0, \
+  0x009E73, \
+  0x56B4E9, \
+  0xE69F00, \
+  0xF0E442, \
+  0x0072B2, \
+  0xE51E10, \
+  0x42E4F0, \
+  0x73839E, \
+]
+
+
+## Draw labels
+set label "{/:Bold OpenMP}\n{/:Bold schedule}"       at screen 0.10,0.97 center font "Tahoma,11" textcolor rgb T[1]
+set label "{/:Bold Max.}\n{/:Bold iterations}"       at screen 0.22,0.97 center font "Tahoma,11" textcolor rgb T[2]
+set label "{/:Bold Tolerance}\n{/:Bold drop}"        at screen 0.34,0.97 center font "Tahoma,11" textcolor rgb T[3]
+set label "{/:Bold Tolerance}\n{/:Bold (initial)}"   at screen 0.44,0.97 center font "Tahoma,11" textcolor rgb T[4]
+set label "{/:Bold Aggregation}\n{/:Bold tolerance}" at screen 0.56,0.97 center font "Tahoma,11" textcolor rgb T[5]
+set label "{/:Bold Pruning}"                         at screen 0.66,0.97 center font "Tahoma,11" textcolor rgb T[6]
+set label "{/:Bold Community}\n{/:Bold vertices}"    at screen 0.73,0.97 center font "Tahoma,11" textcolor rgb T[7]
+set label "{/:Bold Aggregate}"                       at screen 0.80,0.97 center font "Tahoma,11" textcolor rgb T[8]
+set label "{/:Bold Hashtable}"                       at screen 0.88,0.97 center font "Tahoma,11" textcolor rgb T[9]
 
 
 ## Draw plot
-set label "{/:Bold OpenMP}\n{/:Bold schedule}"       at screen 0.14,0.97 center font "Tahoma,11" textcolor rgb "#6000A0"  # "#9100D0"
-set label "{/:Bold Max.}\n{/:Bold iterations}"       at screen 0.26,0.97 center font "Tahoma,11" textcolor rgb "#006030"  # "#009E73"
-set label "{/:Bold Tolerance}\n{/:Bold drop}"        at screen 0.38,0.97 center font "Tahoma,11" textcolor rgb "#2080C0"  # "#56B4E9"
-set label "{/:Bold Tolerance}\n{/:Bold (initial)}"   at screen 0.47,0.97 center font "Tahoma,11" textcolor rgb "#B07000"  # "#E69F00"
-set label "{/:Bold Aggregation}\n{/:Bold tolerance}" at screen 0.58,0.97 center font "Tahoma,11" textcolor rgb "#A09010"  # "#F0E442"
-set label "{/:Bold Pruning}"                         at screen 0.67,0.97 center font "Tahoma,11" textcolor rgb "#004080"  # "#0072B2"
-set label "{/:Bold Community}\n{/:Bold vertices}"    at screen 0.76,0.97 center font "Tahoma,11" textcolor rgb "#B00000"  # "#E51E10"
-set label "{/:Bold Hashtable}"                       at screen 0.86,0.97 center font "Tahoma,11" textcolor rgb "#000000"  # "#000000"
 plot "louvain-opt.csv" \
-     using ($1==1? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==2? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==3? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==4? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==5? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==6? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==7? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==8? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using ($1==9? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
-  '' using 5:xtic(3) title '' with lines linestyle 5 lw 3 lc rgb "#0000FF" axes x1y2
+     using 0:6:(1):(B[$1]):xtic(3) title '' with boxes lc rgb var, \
+  '' using 0:5 title '' with lines linestyle 5 lw 3 lc rgb "#0000FF" axes x1y2
 
 
 

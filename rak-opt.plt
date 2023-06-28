@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 6in,2.0in
+set terminal pdf size 10in,2.0in
 set output 'rak-opt.pdf'
 
 
@@ -18,9 +18,31 @@ set xtics rotate by 45 right
 set tmargin 2
 set bmargin 3.5
 set boxwidth 5 relative
-# set format x "%g"
-# set xlabel  '{/:Bold Relative runtime}'
-# set y2range [0.85:0.95]
+
+
+## Define colors
+array T[9] = [ \
+  0x6000A0, \
+  0x006030, \
+  0x2080C0, \
+  0xB07000, \
+  0xA09010, \
+  0x004080, \
+  0xB00000, \
+  0x1090A0, \
+  0x304060 \
+]
+array B[9] = [ \
+  0x9100D0, \
+  0x009E73, \
+  0x56B4E9, \
+  0xE69F00, \
+  0xF0E442, \
+  0x0072B2, \
+  0xE51E10, \
+  0x42E4F0, \
+  0x73839E, \
+]
 
 
 ## Draw plot
