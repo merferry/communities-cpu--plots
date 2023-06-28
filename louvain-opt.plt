@@ -11,10 +11,11 @@ set style textbox opaque noborder
 set xtics rotate by 45 right
 set grid   y
 set key above font ",12"
-set yrange [0:1]
+set yrange  [0.0:1]
+set y2range [0.9:1]
 set ylabel  '{/:Bold Relative runtime}'
-set y2label '{/:Bold Modularity}'
-set y2tics  0.01
+set y2label '{/:Bold Realtive modularity}'
+set y2tics  0.02
 set xtics rotate by 45 right
 set tmargin 2
 set bmargin 3.5
@@ -61,7 +62,7 @@ set label "{/:Bold Hashtable}"                       at screen 0.88,0.97 center 
 ## Draw plot
 plot "louvain-opt.csv" \
      using 0:6:(1):(B[$1]):xtic(3) title '' with boxes lc rgb var, \
-  '' using 0:5 title '' with lines linestyle 5 lw 3 lc rgb "#0000FF" axes x1y2
+  '' using 0:7 title '' with lines linestyle 5 lw 3 lc rgb "#0000FF" axes x1y2
 
 
 
