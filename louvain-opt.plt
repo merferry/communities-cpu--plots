@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 6in,2.0in
+set terminal pdf size 10in,2.0in
 set output 'louvain-opt.pdf'
 
 
@@ -41,6 +41,7 @@ plot "louvain-opt.csv" \
   '' using ($1==6? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
   '' using ($1==7? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
   '' using ($1==8? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
+  '' using ($1==9? $6 : 1/0):xtic(3) title '' with histogram fill pattern 3, \
   '' using 5:xtic(3) title '' with lines linestyle 5 lw 3 lc rgb "#0000FF" axes x1y2
 
 
