@@ -34,13 +34,15 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 plot 'hybrid-am.csv' \
-       using 4:((0.001*$5  + 0.999*$7 )/1000) title 'Dynamic Frontier Louvain'     linestyle 2 with linespoints, \
-    '' using 4:($8 /1000)                     title 'Dynamic Frontier LPA'         linestyle 3 with linespoints, \
-    '' using 4:((0.002*$5  + 0.998*$9 )/1000) title 'Dynamic Frontier Louvain-LPA' linestyle 4 with linespoints, \
+       using 4:((0.001*$5  + 0.999*$7 )/1000) title 'P-DF_L'     linestyle 2 with linespoints, \
+    '' using 4:($8 /1000)                     title 'P-DF_{LPA}' linestyle 3 with linespoints, \
+    '' using 4:((0.002*$5  + 0.998*$9 )/1000) title 'P-DF_H'     linestyle 4 with linespoints, \
     '' using 4:12 title '' linestyle 12 with linespoints axes x1y2, \
     '' using 4:13 title '' linestyle 13 with linespoints axes x1y2, \
     '' using 4:14 title '' linestyle 14 with linespoints axes x1y2, \
-    '' using 4:((0.002*$5  + 0.998*$9 )/1000):(sprintf("%.2f", (0.001*$5  + 0.999*$7 )/(0.002*$5  + 0.998*$9 ))) with labels notitle offset character 0,character -1
+    '' using 4:((0.002*$5  + 0.998*$9 )/1000):($4<=1e-7? sprintf("%.2f", (0.001*$5  + 0.999*$7 )/(0.002*$5  + 0.998*$9 )) : "") with labels notitle offset character 2.3,character 0.8, \
+    '' using 4:((0.002*$5  + 0.998*$9 )/1000):($4> 1e-7 && $4<1e-1? sprintf("%.2f", (0.001*$5  + 0.999*$7 )/(0.002*$5  + 0.998*$9 )) : "") with labels notitle offset character 0,character -1, \
+    '' using 4:((0.002*$5  + 0.998*$9 )/1000):($4>=1e-1? sprintf("%.2f", (0.001*$5  + 0.999*$7 )/(0.002*$5  + 0.998*$9 )) : "") with labels notitle offset character -2,character 1
 
 
 
