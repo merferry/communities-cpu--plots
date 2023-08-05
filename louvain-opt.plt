@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 10in,2.0in
+set terminal pdf size 7in,2.0in
 set output 'louvain-opt.pdf'
 
 
@@ -48,13 +48,13 @@ array B[9] = [ \
 
 
 ## Draw labels
-set label "{/:Bold OpenMP}\n{/:Bold schedule}"       at screen 0.10,0.97 center font "Tahoma,11" textcolor rgb T[1]
-set label "{/:Bold Max.}\n{/:Bold iterations}"       at screen 0.22,0.97 center font "Tahoma,11" textcolor rgb T[2]
+set label "{/:Bold OpenMP}\n{/:Bold schedule}"       at screen 0.12,0.97 center font "Tahoma,11" textcolor rgb T[1]
+set label "{/:Bold Max.}\n{/:Bold iterations}"       at screen 0.23,0.97 center font "Tahoma,11" textcolor rgb T[2]
 set label "{/:Bold Tolerance}\n{/:Bold drop}"        at screen 0.34,0.97 center font "Tahoma,11" textcolor rgb T[3]
 set label "{/:Bold Tolerance}\n{/:Bold (initial)}"   at screen 0.44,0.97 center font "Tahoma,11" textcolor rgb T[4]
-set label "{/:Bold Aggregation}\n{/:Bold tolerance}" at screen 0.56,0.97 center font "Tahoma,11" textcolor rgb T[5]
-set label "{/:Bold Pruning}"                         at screen 0.66,0.97 center font "Tahoma,11" textcolor rgb T[6]
-set label "{/:Bold Community}\n{/:Bold vertices}"    at screen 0.73,0.97 center font "Tahoma,11" textcolor rgb T[7]
+set label "{/:Bold Aggregation}\n{/:Bold tolerance}" at screen 0.55,0.97 center font "Tahoma,11" textcolor rgb T[5]
+set label "{/:Bold Pruning}"                         at screen 0.64,0.97 center font "Tahoma,11" textcolor rgb T[6]
+set label "{/:Bold Community}\n{/:Bold vertices}"    at screen 0.72,0.97 center font "Tahoma,11" textcolor rgb T[7]
 set label "{/:Bold Aggregate}"                       at screen 0.80,0.97 center font "Tahoma,11" textcolor rgb T[8]
 set label "{/:Bold Hashtable}"                       at screen 0.88,0.97 center font "Tahoma,11" textcolor rgb T[9]
 
