@@ -14,10 +14,10 @@ set tmargin 1
 unset xtics
 set logscale x 10
 set logscale y 10
-set format x "%g"
+set format x "10^{%L}"
 set grid   y
 set key off
-set multiplot layout 3,4 margins 0.06,0.98,0.05,0.95 spacing 0.06,0.07
+set multiplot layout 3,4 margins 0.07,0.98,0.10,0.95 spacing 0.06,0.07
 # set xlabel  'Batch fraction'
 # set ylabel  'Runtime (s)'
 
@@ -38,6 +38,7 @@ set label "Runtime (s)" at screen 0.01,0.5 center rotate font "Tahoma,18"
 set label "Batch fraction" at screen 0.5,0.02 center font "Tahoma,18"
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
+if (i>=9) { set xtics rotate by 45 right }
 set title word(files, i) offset 0,-0.8
 plot 'louvain-all/'.word(files, i).'.csv' \
        using 4:($5 /1000)                    title 'Static'              linestyle 1 with linespoints, \

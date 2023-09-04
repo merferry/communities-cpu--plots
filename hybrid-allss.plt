@@ -18,7 +18,7 @@ set logscale x 10
 set format x "%g"
 set grid   y
 set key off
-set multiplot layout 3,4 margins 0.07,0.98,0.05,0.95 spacing 0.06,0.07
+set multiplot layout 3,4 margins 0.07,0.98,0.10,0.95 spacing 0.06,0.07
 # set xlabel  'Threads'
 # set ylabel  'Speedup'
 
@@ -39,6 +39,11 @@ set label "Speedup" at screen 0.01,0.5 center rotate font "Tahoma,18"
 set label "Threads" at screen 0.5,0.02 center font "Tahoma,18"
 files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
+set ytics auto
+if (i==4) { set ytics 2 }
+if (i==8) { set ytics 4 }
+if (i>=9) { set ytics 1 }
+if (i>=9) { set xtics 2 rotate by 45 right }
 set title word(files, i) offset 0,-0.8
 plot 'hybrid-allss/'.word(files, i).'.csv' \
        using 2:((0.001*$8  + 0.999*$10)/(0.001*$3  + 0.999*$5 )) title 'Dynamic Frontier Louvain'     linestyle 2 with linespoints, \
