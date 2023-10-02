@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 10in,6in font ",20"
-set output 'louvain-all.pdf'
+set output 'louvain-ins-all.pdf'
 
 
 ## Set global styles
@@ -40,7 +40,7 @@ files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJ
 do for [i=1:words(files)] {
 if (i>=1) { set xtics rotate by 45 right }
 set title word(files, i) offset 0,-0.8
-plot 'louvain-all/'.word(files, i).'.csv' \
+plot 'louvain-ins-all/'.word(files, i).'.csv' \
        using 4:($5 /1000)                    title 'Static'              linestyle 1 with linespoints, \
     '' using 4:($6 /1000)                    title 'Naive-dynamic'       linestyle 2 with linespoints, \
     '' using 4:((0.001*$5 + 0.999*$7 )/1000) title 'Dynamic Δ-screening' linestyle 3 with linespoints, \

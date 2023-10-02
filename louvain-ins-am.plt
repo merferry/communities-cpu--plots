@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 4in,3.7in
-set output 'louvain-am.pdf'
+set output 'louvain-ins-am.pdf'
 
 
 ## Set global styles
@@ -33,7 +33,7 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-plot 'louvain-am.csv' \
+plot 'louvain-ins-am.csv' \
        using 4:($5 /1000)                    title 'Static_L' linestyle 1 with linespoints, \
     '' using 4:($6 /1000)                    title 'P-ND_L'   linestyle 2 with linespoints, \
     '' using 4:((0.001*$5 + 0.999*$7 )/1000) title 'P-DDS_L'  linestyle 3 with linespoints, \
