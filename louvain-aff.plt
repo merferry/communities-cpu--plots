@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 4in,2.7in
-set output 'louvain-del-aff.pdf'
+set output 'louvain-aff.pdf'
 
 
 ## Set global styles
@@ -31,33 +31,26 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-plot 'louvain-del-am.csv' \
-       using 4:13 title 'Static_L' linestyle 1 with linespoints, \
-    '' using 4:14 title 'P-ND_L'   linestyle 2 with linespoints, \
-    '' using 4:15 title 'P-DDS_L'  linestyle 3 with linespoints, \
-    '' using 4:16 title 'P-DF_L'   linestyle 4 with linespoints, \
-    '' using 4:16:($4< 1e-6? sprintf("%.1f", $15/$16) : "") with labels notitle offset character 5.6,character 0.5, \
-    '' using 4:16:($4>=1e-6 && $4<1e-4? sprintf("%.1f", $15/$16) : "") with labels notitle offset character 1.6,character -0.7, \
-    '' using 4:16:($4>=1e-4 && $4<0.1 ? sprintf("%.1f", $15/$16) : "") with labels notitle offset character 0,character 0.7, \
-    '' using 4:16:($4>=0.1 ? sprintf("%.1f", $15/$16) : "") with labels notitle offset character -3,character 0
+plot 'louvain-aff.csv' \
+       using 6:7  title 'Static_L' linestyle 1 with linespoints, \
+    '' using 6:9  title 'P-DS_L'   linestyle 3 with linespoints, \
+    '' using 6:10 title 'P-DF_L'   linestyle 4 with linespoints, \
+    '' using 6:9:($6< 1e-6? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character 3.7,character -0.8, \
+    '' using 6:9:($6>=1e-6 && $6<1e-4? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character 0,character -0.8, \
+    '' using 6:9:($6>=1e-4 && $6<0.1 ? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character 0,character -0.8, \
+    '' using 6:9:($6>=0.1 ? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character -3,character -0.8
 
 
 
 
 ## Columns in CSV file.
 # 01. graph
-# 02. batch_deletions_fraction
-# 03. batch_insertions_fraction
-# 04. batch_fraction
-# 05. lousta-t
-# 06. lounai-t
-# 07. loudel-t
-# 08. loufro-t
-# 09. lousta-m
-# 10. lounai-m
-# 11. loudel-m
-# 12. loufro-m
-# 13. lousta-aff
-# 14. lounai-aff
-# 15. loudel-aff
-# 16. loufro-aff
+# 02. order
+# 03. size
+# 04. batch_deletions_fraction
+# 05. batch_insertions_fraction
+# 06. batch_fraction
+# 07. lousta-aff
+# 08. lounai-aff
+# 09. loudel-aff
+# 10. loufro-aff
