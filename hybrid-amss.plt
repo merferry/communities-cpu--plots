@@ -32,9 +32,9 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 plot 'hybrid-amss.csv' \
-       using 2:((0.001*$8  + 0.999*$10)/(0.001*$3  + 0.999*$5 )) title 'P-DF_L'     linestyle 2 with linespoints, \
-    '' using 2:($11/$6 )                                         title 'P-DF_{LPA}' linestyle 3 with linespoints, \
-    '' using 2:((0.002*$8  + 0.998*$12)/(0.002*$3  + 0.998*$7 )) title 'P-DF_H'     linestyle 4 with linespoints,
+       using 2:($10/$5 ) title 'P-DF_L'     linestyle 2 with linespoints, \
+    '' using 2:($11/$6 ) title 'P-DF_{LPA}' linestyle 3 with linespoints, \
+    '' using 2:($12/$7 ) title 'P-DF_H'     linestyle 4 with linespoints,
 
 
 
