@@ -32,8 +32,7 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 ## Draw plot
 plot 'louvain-aff.csv' \
-       using 6:7  title 'Static_L' linestyle 1 with linespoints, \
-    '' using 6:9  title 'P-DS_L'   linestyle 3 with linespoints, \
+       using 6:9  title 'P-DS_L'   linestyle 3 with linespoints, \
     '' using 6:10 title 'P-DF_L'   linestyle 4 with linespoints, \
     '' using 6:9:($6< 1e-6? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character 3.7,character -0.8, \
     '' using 6:9:($6>=1e-6 && $6<1e-4? sprintf("%.1f", $9 /$10) : "") with labels notitle offset character 0,character -0.8, \

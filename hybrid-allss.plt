@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 10in,6in font ",20"
+set terminal pdf size 10in,4.8in font ",20"
 set output 'hybrid-allss.pdf'
 
 
@@ -35,7 +35,7 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-set label "Speedup" at screen 0.01,0.5 center rotate font "Tahoma,18"
+set label "Speedup (wrt 1 thread)" at screen 0.01,0.5 center rotate font "Tahoma,18"
 set label "Threads" at screen 0.5,0.02 center font "Tahoma,18"
 files='it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {

@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 4in,3.7in
+set terminal pdf size 4in,3in
 set output 'hybrid-amss.pdf'
 
 
@@ -16,7 +16,7 @@ set format x "%g"
 set grid   y
 set key above font ",12"
 set xlabel  '{/:Bold Threads}'
-set ylabel  '{/:Bold Speedup}'
+set ylabel  '{/:Bold Speedup (wrt 1 thread)}'
 
 
 ## Set line styles

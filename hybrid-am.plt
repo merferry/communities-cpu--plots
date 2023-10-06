@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 4in,3.7in
+set terminal pdf size 4in,3in
 set output 'hybrid-am.pdf'
 
 
@@ -42,10 +42,7 @@ plot 'hybrid-am.csv' \
     '' using 4:14 title '' linestyle 14 with linespoints axes x1y2, \
     '' using 4:($7 /1000):($4<=1e-7? sprintf("%.2f", $7 /$9 ) : "") with labels notitle offset character 2.3,character 0.8, \
     '' using 4:($7 /1000):($4> 1e-7 && $4<1e-1? sprintf("%.2f", $7 /$9 ) : "") with labels notitle offset character 0,character 0.8, \
-    '' using 4:($7 /1000):($4>=1e-1? sprintf("%.2f", $7 /$9 ) : "") with labels notitle offset character -2,character 1, \
-    '' using 4:($8 /1000):($4<=1e-7? sprintf("%.2f", $8 /$9 ) : "") with labels notitle offset character 2.3,character -0.8, \
-    '' using 4:($8 /1000):($4> 1e-7 && $4<1e-1? sprintf("%.2f", $8 /$9 ) : "") with labels notitle offset character 0,character -0.8, \
-    '' using 4:($8 /1000):($4>=1e-1? sprintf("%.2f", $8 /$9 ) : "") with labels notitle offset character -2.7,character 0
+    '' using 4:($7 /1000):($4>=1e-1? sprintf("%.2f", $7 /$9 ) : "") with labels notitle offset character -2,character 1
 
 
 

@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 4in,3.7in
+set terminal pdf size 4in,3in
 set output 'louvain-am.pdf'
 
 
