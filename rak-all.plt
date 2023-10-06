@@ -17,7 +17,7 @@ set logscale y 10
 set format x "10^{%L}"
 set grid   y
 set key off
-set multiplot layout 3,4 margins 0.07,0.98,0.10,0.95 spacing 0.06,0.12
+set multiplot layout 2,4 margins 0.07,0.98,0.12,0.95 spacing 0.06,0.14
 # set xlabel  'Batch fraction'
 # set ylabel  'Runtime (s)'
 
@@ -34,15 +34,14 @@ set style line 14 linewidth 2 linetype 1 pointtype 2 dashtype 2
 
 
 ## Draw plot
-set label "Runtime (s)" at screen 0.01,0.5 center rotate font "Tahoma,18"
-set label "Batch fraction" at screen 0.5,0.02 center font "Tahoma,18"
-files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
+set label "Runtime (s)" at screen 0.01,0.5 center rotate font ",20"
+set label "Batch fraction" at screen 0.5,0.02 center font ",20"
+files='it-2004 sk-2005 com-LiveJournal com-Orkut asia_osm europe_osm kmer_A2a kmer_V1r'
 do for [i=1:words(files)] {
 if (i>=1) { set xtics rotate by 45 right }
 set title word(files, i) offset 0,-0.8
 plot 'rak-all/'.word(files, i).'.csv' \
        using 4:($5 /1000) title 'Static'              linestyle 1 with linespoints, \
-    '' using 4:($6 /1000) title 'Naive-dynamic'       linestyle 2 with linespoints, \
     '' using 4:($7 /1000) title 'Dynamic Δ-screening' linestyle 3 with linespoints, \
     '' using 4:($8 /1000) title 'Dynamic Frontier'    linestyle 4 with linespoints,
 }
