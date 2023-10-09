@@ -17,7 +17,7 @@ set key above font ",12"
 set xlabel  '{/:Bold Batch fraction}'
 set ylabel  '{/:Bold Runtime (s)}'
 set y2label '{/:Bold Modularity}'
-set y2range [0.6:0.85]
+set y2range [0.30:0.85]
 set y2tics  0.05
 
 
@@ -40,13 +40,12 @@ plot 'rak-am.csv' \
     '' using 4:9  title '' linestyle 11 with linespoints axes x1y2, \
     '' using 4:11 title '' linestyle 13 with linespoints axes x1y2, \
     '' using 4:12 title '' linestyle 14 with linespoints axes x1y2, \
-    '' using 4:($5 /1000):($4<=1e-7? sprintf("%.2f", $5 /$8 ) : "") with labels notitle offset character 2.3,character -0.7, \
-    '' using 4:($5 /1000):($4> 1e-7 && $4< 1e-1? sprintf("%.2f", $5 /$8 ) : "") with labels notitle offset character 0.5,character -0.8, \
-    '' using 4:($5 /1000):($4>=1e-1? sprintf("%.2f", $5 /$8 ) : "") with labels notitle offset character -3.5,character -1, \
-    '' using 4:($7 /1000):($4<=1e-7? sprintf("%.2f", $7 /$8 ) : "") with labels notitle offset character 2.3,character 0.7, \
-    '' using 4:($7 /1000):($4> 1e-7 && $4< 1e-2? sprintf("%.2f", $7 /$8 ) : "") with labels notitle offset character 0.5,character -0.8, \
-    '' using 4:($7 /1000):($4>=1e-2 && $4< 1e-1? sprintf("%.2f", $7 /$8 ) : "") with labels notitle offset character 2.7,character 0, \
-    '' using 4:($7 /1000):($4>=1e-1? sprintf("%.2f", $7 /$8 ) : "") with labels notitle offset character -2.5,character -2
+    '' using 4:($5 /1000):($4<=1e-7? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character 2.3,character -0.7, \
+    '' using 4:($5 /1000):($4> 1e-7 && $4< 1e-1? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character 0.5,character -0.9, \
+    '' using 4:($5 /1000):($4>=1e-1? sprintf("%.1f", $5 /$8 ) : "") with labels notitle offset character -2.5,character 0.2, \
+    '' using 4:($7 /1000):($4<=1e-7? sprintf("%.1f", $7 /$8 ) : "") with labels notitle offset character 2.0,character 0.7, \
+    '' using 4:($7 /1000):($4> 1e-7 && $4< 1e-1? sprintf("%.1f", $7 /$8 ) : "") with labels notitle offset character 0.5,character -0.8, \
+    '' using 4:($7 /1000):($4>=1e-1? sprintf("%.1f", $7 /$8 ) : "") with labels notitle offset character -1.5,character -1
 
 
 
