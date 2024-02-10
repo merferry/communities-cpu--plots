@@ -17,7 +17,7 @@ set logscale y 10
 set format x "10^{%L}"
 set grid   y
 set key off
-set multiplot layout 2,4 margins 0.07,0.98,0.12,0.95 spacing 0.06,0.14
+set multiplot layout 2,4 margins 0.08,0.98,0.12,0.95 spacing 0.06,0.14
 # set xlabel  'Batch fraction'
 # set ylabel  'Runtime (s)'
 
