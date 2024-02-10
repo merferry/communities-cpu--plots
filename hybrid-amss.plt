@@ -14,7 +14,7 @@ set xtics rotate by 45 right
 set logscale x 10
 set format x "%g"
 set grid   y
-set key above font ",12"
+set key off # above font ",12"
 set xlabel  '{/:Bold Threads}'
 set ylabel  '{/:Bold Speedup (wrt 1 thread)}'
 

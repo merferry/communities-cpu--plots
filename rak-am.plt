@@ -13,7 +13,7 @@ set logscale x 10
 set logscale y 10
 set format x "10^{%L}"
 set grid   y
-set key above font ",12"
+set key off # above font ",12"
 set xlabel  '{/:Bold Batch fraction}'
 set ylabel  '{/:Bold Runtime (s)}'
 set y2label '{/:Bold Modularity}'
